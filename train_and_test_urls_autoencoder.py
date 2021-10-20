@@ -83,7 +83,7 @@ while (recall < 0.5 or accuracy < 0.6):
     print(threshold)
     threshold += .0005
     y_pred = [1 if e > threshold else 0 for e in error_df.reconstruction_error.values]
-    conf_matrix = confusion_matrix(error_df.true_class, y_pred)
+    conf_matrix = confusion_matrix(error_df.true_class, y_pred,labels=[0,1])
     tn, fp, fn, tp = conf_matrix.ravel()
     precision = 1. * tp / (tp + fp)
     recall = 1. * tp / (tp + fn)
